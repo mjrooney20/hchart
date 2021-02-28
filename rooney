@@ -1,0 +1,14 @@
+library(highcharter)
+
+gg <- hchart(Zhang_Kenny, "scatter", hcaes(x="Game", y="GameScore", group = "Player", date="Date")) %>%
+  hc_chart(zoomType="xy") %>%
+  hc_tooltip(pointFormat = "<b>{point.date}</b><br />Points:{point.Points}<br /> Rebounds: {point.Rebounds} <br />Assists: {point.Assists}<br />Steals: {point.Steals} <br />Blocks: {point.Blocks}") %>%
+  hc_title(text="Game By Game Production") %>%
+  hc_subtitle(text="NSL 2020") %>%
+  hc_credits(enabled = TRUE,
+             text = "data via NSL",
+             style = list(
+               fontSize = "14px"
+             )
+  ) %>%
+  hc_add_theme(hc_theme_darkunica())
